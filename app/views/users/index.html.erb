@@ -1,4 +1,5 @@
 <% @users.each do |user| %>
 <%= user.storename %>
 <br>
+<%= button_to "delete", user, method: :delete, class: :destroy%> 
 <% end %>
