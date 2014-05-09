@@ -5,8 +5,11 @@ class UsersController < ApplicationController
 
 	def create
 		@user = User.new(user_params)
-		@user.save
-		redirect_to root_path
+		if @user.save
+		redirect_to users_path
+	else
+		redirect_to new_user_path, notice: "Please fill out both fields"
+	end
 	end
 	
 	def edit
