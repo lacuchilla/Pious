@@ -1,9 +1,12 @@
 <table class="table table-bordered">
 <% @users.each do |user| %>
 <tr>
-<td><%= user.storename %></td>
+<td><%= link_to "#{user.storename}", user_path(user) %></td>
 <br>
+<td><%= link_to "edit", edit_user_path(user), class: "btn btn-primary"%> </td> 
 <td><%= button_to "delete", user, method: :delete, class: :destroy%> </td>
 </tr>
 <% end %>
 </table>
+
+<%= link_to "Create New User", new_user_path, class: "btn btn-primary"%>
